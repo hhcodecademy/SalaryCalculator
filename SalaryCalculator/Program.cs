@@ -20,18 +20,37 @@ namespace SalaryCalculator
             Console.WriteLine("Please enter disabled status (e / E: bəli, x / X: yox))");
             char disabledStatus = char.Parse(Console.ReadLine().ToLower());
 
+            float marriedIncome = 0;
             if (marriedStatus=='e')
             {
-                grossSalary = grossSalary + 50;
+                marriedIncome=50;
+                grossSalary = grossSalary + marriedIncome;
             }
+            
+            float childIncome = 0;
             switch (childCount)
             {
                 case 1:
-                    grossSalary = grossSalary + 30;
+                    childIncome =30;
                     break;
+                case 2:
+                    childIncome = 30+25;
+                    break;
+                case 4:
+                    childIncome = 30+25+20;
+                    break;
+       
                 default:
+                    if (childCount > 3)
+                    {
+                        childIncome = 30 + 25 + 20 + (childCount - 3) * 15;
+                    }
+                    else {
+                        childIncome = 0;
+                    }
                     break;
             }
+            grossSalary = grossSalary + childIncome;
         }
     }
 }
