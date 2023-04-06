@@ -6,6 +6,7 @@ namespace SalaryCalculator
     {
         static void Main(string[] args)
         {
+            float grossSalary = 0f;
             Console.WriteLine("Hello World!");
             Console.WriteLine("Please enter total gross salary");
             float salary = float.Parse(Console.ReadLine());
@@ -18,6 +19,19 @@ namespace SalaryCalculator
             }
             Console.WriteLine("Please enter disabled status (e / E: bəli, x / X: yox))");
             char disabledStatus = char.Parse(Console.ReadLine().ToLower());
+
+            if (marriedStatus=='e')
+            {
+                grossSalary = grossSalary + 50;
+            }
+            switch (childCount)
+            {
+                case 1:
+                    grossSalary = grossSalary + 30;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
